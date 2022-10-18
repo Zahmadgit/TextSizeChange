@@ -31,7 +31,7 @@ class TextFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         textViewModel.getSelectedText().observe(requireActivity()){
-            changeTextSize(textViewModel.getSelectedText())
+            changeTextSize(it)
         }
     }
 
