@@ -26,9 +26,7 @@ class SizeFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_size, container, false)
     }
 
-    interface ValueChangeInterface {
-        fun onChange(value: Int)
-    }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

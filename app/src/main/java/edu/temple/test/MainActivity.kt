@@ -10,7 +10,7 @@ import org.w3c.dom.Text
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
 
-class MainActivity : AppCompatActivity(), SizeFragment.ValueChangeInterface {
+class MainActivity : AppCompatActivity{
 
     lateinit var textViewModel: TextViewModel
 
@@ -35,9 +35,5 @@ class MainActivity : AppCompatActivity(), SizeFragment.ValueChangeInterface {
 
     }
 
-    override fun onChange(value: Int) {
-        // Change text size
-        textViewModel.changeTextSize(value.toFloat())
-    }
 
 }
