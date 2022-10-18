@@ -28,6 +28,13 @@ class TextFragment : Fragment() {
         }
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        textViewModel.getSelectedText().observe(requireActivity()){
+            changeTextSize(textViewModel.getSelectedText())
+        }
+    }
+
     fun changeTextSize (size: Float) {
 
         // Only perform update if textView is previously initialized
