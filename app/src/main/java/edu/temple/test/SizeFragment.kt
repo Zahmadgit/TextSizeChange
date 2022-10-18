@@ -7,8 +7,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.SeekBar
 import android.widget.SeekBar.OnSeekBarChangeListener
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 
 class SizeFragment : Fragment() {
+
+    private lateinit var textViewModel: TextViewModel
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        textViewModel = ViewModelProvider(requireActivity())[textViewModel::class.java]
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

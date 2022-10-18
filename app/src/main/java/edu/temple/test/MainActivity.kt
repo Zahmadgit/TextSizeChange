@@ -7,10 +7,12 @@ import android.widget.TextView
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.*
 import org.w3c.dom.Text
+import android.view.View
+import androidx.lifecycle.ViewModelProvider
 
 class MainActivity : AppCompatActivity(), SizeFragment.ValueChangeInterface {
 
-    lateinit var textFragment: TextFragment
+    lateinit var textViewModel: TextViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,23 +21,23 @@ class MainActivity : AppCompatActivity(), SizeFragment.ValueChangeInterface {
 
         // Create and attach fragments if not already exist
         if (savedInstanceState == null) {
-            textFragment = TextFragment()
+            textViewModel = TextViewModel()
 
             supportFragmentManager
                 .beginTransaction()
                 .add(R.id.container_1, SizeFragment())
-                .add(R.id.container_2, textFragment)
+                .add(R.id.container_2, TextViewModel())
                 .commit()
         } else {
             // Grab reference to previously added fragment
-            textFragment = supportFragmentManager.findFragmentById(R.id.container_2) as TextFragment
+            textViewModel = supportFragmentManager.findFragmentById(R.id.container_2) as TextViewModel
         }
 
     }
 
     override fun onChange(value: Int) {
         // Change text size
-        textFragment.changeTextSize(value.toFloat())
+        textViewModel.changeTextSize(value.toFloat())
     }
 
 }
