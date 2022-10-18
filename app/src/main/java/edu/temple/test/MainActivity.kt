@@ -10,7 +10,7 @@ import org.w3c.dom.Text
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
 
-class MainActivity : AppCompatActivity{
+class MainActivity : AppCompatActivity() {
 
     lateinit var textViewModel: TextViewModel
 
@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity{
             supportFragmentManager
                 .beginTransaction()
                 .add(R.id.container_1, SizeFragment())
-                .add(R.id.container_2, TextViewModel())
+                .add(R.id.container_2, TextFragment())
                 .commit()
         } else {
             // Grab reference to previously added fragment
